@@ -1,1 +1,39 @@
-<p>details works!</p>
+<div class="card mt-2">
+    <div class="card-header">
+      Deatelles de la cita
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            Id: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Nombre: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Descripcion: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Color: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Duracion: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Actividad: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Fecha creacion: <h5></h5>
+        </li>
+        <li class="list-group-item">
+            Fecha modiciacion: <h5></h5>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-warning m-1 btn-sm" (click)="editar()">Editar</button>
+      <button type="button" class="btn btn-outline-danger m-1 btn-sm" (click)="eliminar()">Eliminar</button>
+    </div>
+  </div>
+  <button type="button" class="btn btn-secondary mt-2" (click)="volver()">Volver</button>
+  
