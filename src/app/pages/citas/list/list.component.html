@@ -1,22 +1,20 @@
-<div class="table-responsive">
+<div class="table-responsive" *ngIf="flag">
     <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Color</th>
-          <th scope="col">Actividad</th>
-          <th scope="col">Fecha creacion</th>
+          <th scope="col">Duracion</th>
           <th class="d-none d-sm-block" scope="col">Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="table-info" *ngFor="let item of fakeData">
+      <tbody *ngFor="let item of listaCitas$|async">
+        <tr *ngIf="item.actividad==true">
           <th scope="row">{{item.nombre}}</th>
           <td>{{item.descripcion}}</td>
-          <td>{{item.color}}</td>
-          <td>{{item.actividad}}</td>
-          <td>{{item.fechaCreacion}}</td>
+          <td><div [ngStyle]="{'background-color':item.color}" class="colorInput" ></div></td>
+          <td>{{item.duracion}}Minutos</td>
           <td class="btn-goup d-none d-sm-block" role="group">
             <button type="button" class="btn btn-warning m-1" (click)="editar(item)">Editar</button>
             <button type="button" class="btn btn-secondary m-1" (click)="ver(item)">Ver</button>
@@ -25,4 +23,7 @@
       </tbody>
     </table>
 </div>
-  
+
+<div *ngIf="!flag">
+  <H1>Ingresa tus citas</H1>
+</div>

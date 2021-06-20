@@ -1,5 +1,5 @@
 export interface Cita {
-    id?: number,
+    id?: string,
     nombre:string,
     descripcion:string,
     color:string,

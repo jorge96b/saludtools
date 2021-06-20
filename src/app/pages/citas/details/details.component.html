@@ -14,7 +14,8 @@
             Descripcion: <h5>{{cita.descripcion}}</h5>
         </li>
         <li class="list-group-item">
-            Color: <h5>{{cita.color}}</h5>
+
+            Color:<div [ngStyle]="{'background-color':cita.color}" class="colorInput" ></div>
         </li>
         <li class="list-group-item">
             Duracion: <h5>{{cita.duracion}}Minutos</h5>
@@ -31,8 +32,8 @@
       </ul>
     </div>
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-outline-warning m-1 btn-sm" (click)="editar()">Editar</button>
-      <button type="button" class="btn btn-outline-danger m-1 btn-sm" (click)="eliminar()">Eliminar</button>
+      <button type="button" class="btn btn-outline-warning m-1 btn-sm" (click)="editar(cita)">Editar</button>
+      <button type="button" class="btn btn-outline-danger m-1 btn-sm" (click)="eliminar(cita)">Eliminar</button>
     </div>
   </div>
   <button type="button" class="btn btn-secondary mt-2" (click)="volver()">Volver</button>

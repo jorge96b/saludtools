@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "saludtools-90a98": {
+      "hosting": {
+        "saludtools": [
+          "saludtools-90a98"
+        ]
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Cita } from 'src/app/shared/models/cita';
+import { CitasService } from '../citas.service';
 
 @Component({
   selector: 'app-list',
@@ -11,42 +12,20 @@ export class ListComponent implements OnInit {
 
   navigationExtras: NavigationExtras | undefined
 
-  fakeData=[
-    {
-      id:1,
-      nombre:'jorge',
-      descripcion:'descripcion',
-      color:'#ff0000',
-      duracion:'10',
-      actividad:true,
-      fechaCreacion:'01/02/2021',
-      fechaEdicion:'01/02/2021'
-    },
-    {
-      id:2,
-      nombre:'jorge',
-      descripcion:'descripcion',
-      color:'#ff0000',
-      duracion:'10',
-      actividad:true,
-      fechaCreacion:'01/02/2021',
-      fechaEdicion:'01/02/2021'
-    },
-    {
-      id:3,
-      nombre:'jorge',
-      descripcion:'descripcion',
-      color:'#ff0000',
-      duracion:'10',
-      actividad:true,
-      fechaCreacion:'01/02/2021',
-      fechaEdicion:'01/02/2021'
-    },
-  ]
+  listaCitas$ = this.citasService.citas;
 
-  constructor(private router : Router) {}
+  flag : boolean = false;
+
+  constructor(private router : Router, private citasService: CitasService) {}
 
   ngOnInit(): void {
+    if(this.listaCitas$!=undefined){
+      this.listaCitas$.subscribe(event => {
+        if(event.length > 0){
+          this.flag = true
+        }
+      })
+    }
   }
 
   editar(item:any):void{
@@ -65,8 +44,14 @@ export class ListComponent implements OnInit {
     };
     this.router.navigate(['details'], this.navigationExtras);
   }
-  eliminar(item:any):void{
-    alert('Se ha borrado tu cita')
-  }
   
+  async eliminar(item: Cita): Promise<void> {
+    try {
+      alert('Eliminando cita');
+      await this.citasService.onDeleteCitas(item);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
+
