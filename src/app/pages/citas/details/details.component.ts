@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cita } from 'src/app/shared/models/cita';
 
 @Component({
   selector: 'app-details',
@@ -8,7 +9,12 @@ import { Router } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  cita : Cita;
+
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.cita = navigation?.extras?.state?.value;
+   }
 
   ngOnInit(): void {
   }

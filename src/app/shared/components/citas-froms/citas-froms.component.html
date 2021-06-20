@@ -1,0 +1,77 @@
+<form class="mt-3 col-md-8 offset-md-2" (ngSubmit)="onSave()" [formGroup]="citasForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Name" formControlName="id">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="nombre">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Name" formControlName="descripcion">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="color">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="email" formControlName="duracion">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="email" formControlName="actividad">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Start Date 01/02/2021" formControlName="fechaCreacion">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" placeholder="Start Date 01/02/2021" formControlName="fechaEdicion">
+        <div class="invalid-feedback">
+          <span>
+            Este campo es requerido.
+          </span>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn bg-dark btn-block text-light">Guardar</button>
+  </form>
+<button type="button" class="btn btn-secondary mt-2" (click)="volver()">Volver</button>
+  
